@@ -1,44 +1,77 @@
 {
-    "name": "PokeSeiunV2",
-    "preductname": "PokeSeiunV2",
-    "version": "2.1.5",
-    "description": "Launcher Mincraft pour le serveur PokeSeiunV2",
-    "main": "src/app.js",
-    "author": {
-        "name": "luuxis, Joryys Inc.",
-        "email": "contact@luuxis.fr",
-        "url": "https://github.com/luuxis"
+  "name": "PokeSeiunV2",
+  "productName": "PokeSeiunV2",
+  "version": "2.1.5",
+  "description": "Launcher Minecraft pour le serveur PokeSeiunV2",
+  "main": "src/app.js",
+  "author": {
+    "name": "luuxis, Joryys Inc.",
+    "email": "contact@luuxis.fr",
+    "url": "https://github.com/luuxis"
+  },
+  "url": "http://joryys.worldlite.fr/PokeSeiunLauncher",
+  "scripts": {
+    "start": "cross-env-shell NODE_ENV=dev electron .",
+    "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
+    "build": "node build.js --obf=true --build=platform",
+    "icon": "node build.js --icon=https://raw.githubusercontent.com/Joryys/PokeSeiunV2Launcher/refs/heads/master/src/assets/images/icon.png"
+  },
+  "build": {
+    "appId": "com.pokeseiun.launcher",
+    "productName": "PokeSeiunV2",
+    "artifactName": "${productName}-setup-${version}.${ext}",
+    "directories": {
+      "output": "build"
     },
-    "url": "http://joryys.worldlite.fr/PokeSeiunLauncher",
-    "scripts": {
-        "start": "cross-env-shell NODE_ENV=dev electron .",
-        "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
-        "build": "node build.js --obf=true --build=platform",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/Joryys/PokeSeiunV2Launcher/refs/heads/master/src/assets/images/icon.png"
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "src/assets/images/icon.png"
     },
-    "license": "CCANC",
-    "nodemonConfig": {
-        "ext": "js,html,css",
-        "ignore": "**/test"
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "runAfterFinish": true
     },
-    "dependencies": {
-        "electron-updater": "^6.6.2",
-        "minecraft-java-core": "^4.2.3",
-        "node-bdd": "^2.0.4",
-        "node-fetch": "^2.7.0",
-        "xml-js": "^1.6.11"
+    "mac": {
+      "target": "dmg",
+      "icon": "src/assets/images/icon.png"
     },
-    "devDependencies": {
-        "cross-env": "^10.1.0",
-        "electron": "^39.2.4",
-        "electron-builder": "^26.0.12",
-        "javascript-obfuscator": "^4.1.1",
-        "jimp": "^1.6.0",
-        "nodemon": "^3.1.11",
-        "png2icons": "^2.0.1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Joryys/PokeSeiunV2Launcher.git"
+    "linux": {
+      "target": "AppImage",
+      "icon": "src/assets/images/icon.png"
     }
+  },
+  "license": "CCANC",
+  "nodemonConfig": {
+    "ext": "js,html,css",
+    "ignore": "**/test"
+  },
+  "dependencies": {
+    "electron-updater": "^6.6.2",
+    "minecraft-java-core": "^4.2.3",
+    "node-bdd": "^2.0.4",
+    "node-fetch": "^2.7.0",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "electron": "^39.2.4",
+    "electron-builder": "^26.0.12",
+    "javascript-obfuscator": "^4.1.1",
+    "jimp": "^1.6.0",
+    "nodemon": "^3.1.11",
+    "png2icons": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joryys/PokeSeiunV2Launcher.git"
+  }
 }
