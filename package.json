@@ -1,7 +1,7 @@
 {
   "name": "PokeSeiunV2",
   "productName": "PokeSeiunV2",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "Launcher Minecraft pour le serveur PokeSeiunV2",
   "main": "src/app.js",
   "author": {
